@@ -20,7 +20,8 @@ function createGalleryImage(galleryItems) {
     }).join('');
 }
 
-new SimpleLightbox('.gallery__item', {
+let newLightbox = new SimpleLightbox('.gallery__item', {
     captionsData: 'alt',
     captionDelay: 250,
 });
+
