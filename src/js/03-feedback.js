@@ -20,6 +20,8 @@ function onInput (event){
 
 function formSubmit(event){
     event.preventDefault();
+    formData.email = inputEl.value;
+    formData.message = messageEl.value;
     console.log('email ',inputEl.value)
     console.log('message', messageEl.value);    
     event.currentTarget.reset();
