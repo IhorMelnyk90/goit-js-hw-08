@@ -13,26 +13,31 @@ populateForm();
 
 const formData = {};
 
-function onInput (event){
+function onInput(event) {
     formData[event.target.name] = event.target.value;
     localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 };
 
-function formSubmit(event){
-    event.preventDefault();    
-    console.log('email ',inputEl.value)
-    console.log('message', messageEl.value);    
+function formSubmit(event) {
+    event.preventDefault();
+    formData.email = inputEl.value;
+    formData.message = messageEl.value;
+    console.log(formData);
     event.currentTarget.reset();
     localStorage.removeItem(STORAGE_KEY);
+
 };
 
-function populateForm () {    
-    const newForm = JSON.parse(localStorage.getItem(STORAGE_KEY));
- 
- if (newForm) {
-    const savedInput = newForm.email;
-    inputEl.value = savedInput;
-    const savedMessage = newForm.message;
-    messageEl.value = savedMessage;
- };
+function populateForm() {
+    let initForm = localStorage.getItem(STORAGE_KEY);
+    if (initForm) {
+        const newForm = JSON.parse(initForm);
+
+        const newEmail = newForm.email;
+        inputEl.value = newEmail;
+
+        const newMessage = newForm.message;
+        messageEl.value = newMessage;
+
+    };
 };
