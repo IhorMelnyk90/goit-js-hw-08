@@ -31,10 +31,10 @@ function populateForm() {
     const newValues = JSON.parse(initValues);
 
     if (newValues) {
-        const newEmail = newValues.email;
+        const newEmail = newValues.email || '';
         inputEl.value = newEmail;
 
-        const newMessage = newValues.message;
+        const newMessage = newValues.message || '';
         messageEl.value = newMessage;
     }
 }
